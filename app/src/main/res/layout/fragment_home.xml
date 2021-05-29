@@ -448,7 +448,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
 
-<!--        TODO: Make News Card-->
+        <!--        TODO: Make News Card-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
