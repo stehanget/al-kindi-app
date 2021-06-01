@@ -14,6 +14,8 @@ public class Quran {
 
     }
 
+
+
     public String getArti() {
         return arti;
     }

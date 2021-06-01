@@ -17,25 +17,22 @@
         android:theme="@style/Theme.Alkindiapp"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
+        <activity android:name=".AsmaulHusnaActivity"></activity>
         <activity
             android:name=".MainMenuActivity"
-            android:label="@string/title_activity_main_menu"></activity>
+            android:label="@string/title_activity_main_menu" />
         <activity android:name=".FeedDetailActivity" />
         <activity android:name=".TafsirActivity" />
         <activity android:name=".QuranContentActivity" />
-        <activity android:name=".QuranActivity">
-
-        </activity>
+        <activity android:name=".QuranActivity"></activity>
         <activity android:name=".QiblaDirectionActivity" />
-        <activity android:name=".FeedQuotesActivity" >
-
-        </activity>
+        <activity android:name=".FeedQuotesActivity"></activity>
         <activity android:name=".SplashScreenActivity" />
-        <activity android:name=".FeedContentActivity"></activity>
+        <activity android:name=".FeedContentActivity" />
         <activity android:name=".FeedDuniaSainsActivity" />
-        <activity android:name=".FeedActivity"></activity>
+        <activity android:name=".FeedActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
