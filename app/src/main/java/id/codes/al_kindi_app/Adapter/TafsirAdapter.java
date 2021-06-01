@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +37,7 @@ public class TafsirAdapter extends FirebaseRecyclerAdapter<Tafsir, TafsirAdapter
     protected void onBindViewHolder(@NonNull tafsirViewHolder holder, int position, @NonNull Tafsir model) {
         Glide.with(context).load(model.getGambar()).into(holder.img_item);
         holder.tv_item.setText(model.getNama());
+        Toast.makeText(context, model.getGambar(), Toast.LENGTH_SHORT).show();
     }
 
     @NonNull
