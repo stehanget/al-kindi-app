@@ -37,7 +37,7 @@ public class AsmaulHusnaAdapter extends RecyclerView.Adapter<AsmaulHusnaAdapter.
     @Override
     public void onBindViewHolder(@NonNull asmaulHusnaViewHolder holder, int position) {
         AsmaulHusna asmaulHusna = dataAsmaulHusna.get(position);
-        holder.tv_arab.setText(String.valueOf(asmaulHusna.getUrutan()));
+        holder.tv_arab.setText(asmaulHusna.getArab());
         holder.tv_arti.setText(asmaulHusna.getArti());
     }
 

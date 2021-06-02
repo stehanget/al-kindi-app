@@ -38,7 +38,7 @@ public class AsmaulHusnaActivity extends AppCompatActivity {
         rv_asmaul_husna = findViewById(R.id.rv_asmaul_husna); //findId recyclerView yg ada pada activity_read_all.xml
 
         rv_asmaul_husna.setHasFixedSize(true); //agar recyclerView tergambar lebih cepat
-        rv_asmaul_husna.setLayoutManager(new GridLayoutManager(this,3));
+        rv_asmaul_husna.setLayoutManager(new GridLayoutManager(this,1));
         listAsmaulHusna = new ArrayList<AsmaulHusna>();
 
         try {
