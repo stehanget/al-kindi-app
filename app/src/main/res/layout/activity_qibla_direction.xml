@@ -54,7 +54,7 @@
             android:layout_marginStart="@dimen/_17sdp"
             android:layout_marginTop="@dimen/_58sdp"
             android:layout_marginEnd="@dimen/_17sdp"
-            android:layout_marginBottom="@dimen/_75sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
             app:cardElevation="0dp"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardBackgroundColor="#ECFFFFFF"
