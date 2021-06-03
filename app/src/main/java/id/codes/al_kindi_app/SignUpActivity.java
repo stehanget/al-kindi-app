@@ -160,6 +160,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
                                         public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                            finish();
                                             Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                             startActivity(intent);
                                         }

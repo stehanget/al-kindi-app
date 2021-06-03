@@ -74,13 +74,14 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             pDialog.dismissWithAnimation();
+                            finish();
                             Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
                             startActivity(intent);
                         }else{
                             pDialog.dismissWithAnimation();
                             new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
                                     .setTitleText("Yah")
-                                    .setContentText("Pendaftaran gagal, silahkan cek koneksi anda !")
+                                    .setContentText("Login gagal, pastikan email dan password sudah benar!")
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
                                         public void onClick(SweetAlertDialog sweetAlertDialog) {
@@ -142,18 +143,17 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                validateField();
             }
         });
 
     }
-    void validateField(){
+    void validateField() {
         if (isError1||isError2){
             btn_login.setEnabled(false);
         }else{
             btn_login.setEnabled(true);
         }
-
     }
 
     @Override
@@ -161,6 +161,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+            finish();
             Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
             startActivity(intent);
         }
