@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView tv_signup;
     private FirebaseAuth mAuth;
     boolean isError1 = true;
+    boolean isError2 = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,10 +121,34 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        et_password_input.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (et_password_input.getText().toString().equals("")){
+                    et_password_input.setError("Kosong");
+                    isError2 = true;
+                }else if(et_password_input.getText().length() < 6){
+                    et_password_input.setError("Password Minimal 6 Karakter");
+                    isError2 = true;
+                } else {
+                    isError2 = false;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
     }
     void validateField(){
-        if (isError1){
+        if (isError1||isError2){
             btn_login.setEnabled(false);
         }else{
             btn_login.setEnabled(true);

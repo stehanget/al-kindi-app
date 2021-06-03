@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +38,9 @@ public class SignUpActivity extends AppCompatActivity {
     EditText et_confirm_password_input;
     @BindView(R.id.btn_signup)
     ConstraintLayout btn_signup;
+
+    @BindView(R.id.tv_login)
+    TextView tv_login;
     private FirebaseAuth mAuth;
 
     boolean isError1 = true;
@@ -50,6 +54,15 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         btn_signup.setEnabled(false);
+
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         et_email_input.addTextChangedListener(new TextWatcher() {
             @Override
@@ -158,7 +171,6 @@ public class SignUpActivity extends AppCompatActivity {
                                     .setTitleText("Yah")
                                     .setContentText("Pendaftaran gagal, silahkan cek koneksi anda !")
                                     .show();
-                            Toast.makeText(SignUpActivity.this, "SignUP Gagal "+task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -173,5 +185,12 @@ public class SignUpActivity extends AppCompatActivity {
             btn_signup.setEnabled(true);
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+        startActivity(intent);
     }
 }

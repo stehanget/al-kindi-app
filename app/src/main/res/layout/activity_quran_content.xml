@@ -62,13 +62,15 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_440sdp"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/_17sdp"
             android:layout_marginTop="@dimen/_68sdp"
             android:layout_marginEnd="@dimen/_17sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
             app:cardBackgroundColor="#ECFFFFFF"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -76,16 +78,17 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/_10sdp">
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_24sdp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_ayat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:overScrollMode="never"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
