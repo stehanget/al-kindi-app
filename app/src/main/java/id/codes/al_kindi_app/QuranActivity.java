@@ -27,7 +27,7 @@ public class QuranActivity extends AppCompatActivity {
     @BindView(R.id.rv_quran)
     RecyclerView rv_quran;
     ArrayList<Quran> listSurat; // Create an ArrayList object
-    private static String url = "https://al-quran-8d642.firebaseio.com/data.json";
+    private static String url = "https://api.npoint.io/99c279bb173a6e28359c/data";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
