@@ -1,22 +1,18 @@
 package id.codes.al_kindi_app;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import static java.time.temporal.ChronoUnit.MINUTES;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +20,6 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -32,8 +27,6 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import id.codes.al_kindi_app.Adapter.AyatAdapter;
-import id.codes.al_kindi_app.Model.Ayat;
 
 public class PrayerScheduleActivity extends AppCompatActivity {
     String tanggal,tanggalBesok;
@@ -61,15 +54,7 @@ public class PrayerScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prayer_schedule);
         ButterKnife.bind(this);
-
-
-
-
         getData();
-
-
-
-
     }
 
     private void getData() {

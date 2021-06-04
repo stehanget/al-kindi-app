@@ -2,49 +2,51 @@ package id.codes.al_kindi_app.ui.home;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
-import java.util.ArrayList;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import id.codes.al_kindi_app.AsmaulHusnaActivity;
 import id.codes.al_kindi_app.FeedContentActivity;
 import id.codes.al_kindi_app.FeedQuotesActivity;
-import id.codes.al_kindi_app.Model.AsmaulHusna;
 import id.codes.al_kindi_app.QiblaDirectionActivity;
 import id.codes.al_kindi_app.QuranActivity;
 import id.codes.al_kindi_app.R;
 import id.codes.al_kindi_app.TafsirActivity;
 
-import static androidx.core.content.ContextCompat.getSystemService;
-
 public class HomeFragment extends Fragment {
 
+    private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
     private HomeViewModel homeViewModel;
+    TextView tv_location_time;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -53,8 +55,18 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        tv_location_time = root.findViewById(R.id.tv_location_time);
 
-        // method to get the location
+        if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(requireActivity(),
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            }, PackageManager.PERMISSION_GRANTED);
+        } else {
+            getCurrentLocation();
+        }
 
         ConstraintLayout btn_menu_quran = root.findViewById(R.id.btn_menu_1);
         ConstraintLayout btn_menu_dunia_sains = root.findViewById(R.id.btn_menu_2);
@@ -122,5 +134,60 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_LOCATION_PERMISSION && grantResults.length > 0) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getCurrentLocation();
+            } else {
+                Toast.makeText(getActivity(), "Permission denied!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private void getCurrentLocation() {
+        LocationRequest locationRequest = new LocationRequest();
+        locationRequest.setInterval(10000);
+        locationRequest.setFastestInterval(3000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        LocationServices.getFusedLocationProviderClient(requireActivity())
+                .requestLocationUpdates(locationRequest, new LocationCallback() {
+                    @Override
+                    public void onLocationResult(@NonNull @NotNull LocationResult locationResult) {
+                        super.onLocationResult(locationResult);
+                        LocationServices.getFusedLocationProviderClient(requireActivity())
+                                .removeLocationUpdates(this);
+                        if (locationResult != null && locationResult.getLocations().size() > 0) {
+                            int latestLocaionIndex = locationResult.getLocations().size() - 1;
+                            double latitude =
+                                    locationResult.getLocations().get(latestLocaionIndex).getLatitude();
+                            double longitude =
+                                    locationResult.getLocations().get(latestLocaionIndex).getLongitude();
+
+                            Location location = new Location("providerNA");
+                            location.setLatitude(latitude);
+                            location.setLongitude(longitude);
+
+                            Geocoder geocoder = new Geocoder(requireActivity(), Locale.getDefault());
+                            List<Address> addresses = null;
+                            try {
+                                addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                                String cityName = addresses.get(0).getLocality();
+
+                                SimpleDateFormat formatCurrentDate = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
+                                String currentDate = formatCurrentDate.format(new Date());
+
+                                tv_location_time.setText(String.format("%s, %s", cityName, currentDate));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }, Looper.getMainLooper());
     }
 }
