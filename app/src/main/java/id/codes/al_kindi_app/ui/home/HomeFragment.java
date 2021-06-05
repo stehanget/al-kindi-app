@@ -37,6 +37,7 @@ import java.util.Locale;
 import id.codes.al_kindi_app.AsmaulHusnaActivity;
 import id.codes.al_kindi_app.FeedContentActivity;
 import id.codes.al_kindi_app.FeedQuotesActivity;
+import id.codes.al_kindi_app.PrayerScheduleActivity;
 import id.codes.al_kindi_app.QiblaDirectionActivity;
 import id.codes.al_kindi_app.QuranActivity;
 import id.codes.al_kindi_app.R;
@@ -94,8 +95,8 @@ public class HomeFragment extends Fragment {
         btn_menu_waktu_sholat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getContext(), FeedContentActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getContext(), PrayerScheduleActivity.class);
+                startActivity(intent);
             }
         });
         btn_menu_arah_kiblat.setOnClickListener(new View.OnClickListener() {
