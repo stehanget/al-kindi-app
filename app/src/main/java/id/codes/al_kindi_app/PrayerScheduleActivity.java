@@ -3,6 +3,7 @@ package id.codes.al_kindi_app;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class PrayerScheduleActivity extends AppCompatActivity {
     TextView tv_isya_time;
     @BindView(R.id.tv_countdown)
     TextView tv_countdown;
+    long a = 5000;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,9 +125,7 @@ public class PrayerScheduleActivity extends AppCompatActivity {
                                         Date dateMin = format.parse("00:00");
                                         mills=(dateMax.getTime() -date1.getTime() )+(date2.getTime()-dateMin.getTime());
                                     }
-
-
-                                    new CountDownTimer(mills, 1000) {
+                                    CountDownTimer countDownTimer = new CountDownTimer(a, 1000) {
 
                                         public void onTick(long millisUntilFinished) {
                                             String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
@@ -135,20 +135,23 @@ public class PrayerScheduleActivity extends AppCompatActivity {
                                         }
 
                                         public void onFinish() {
+                                            Toast.makeText(PrayerScheduleActivity.this, "FInisi", Toast.LENGTH_SHORT).show();
+                                            a = 10000;
+                                            Toast.makeText(PrayerScheduleActivity.this, String.valueOf(a), Toast.LENGTH_SHORT).show();
+                                            this.cancel();
+                                            this.start();
 
                                         }
                                     }.start();
+
+             
+
+
 
 
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
-
-
-
-
-
-
                             }
 
 

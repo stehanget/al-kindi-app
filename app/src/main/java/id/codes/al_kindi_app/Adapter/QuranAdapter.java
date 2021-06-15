@@ -48,6 +48,7 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.quranViewHol
             public void onClick(View v) {
                 Intent intent = new Intent(context, QuranContentActivity.class);
                 intent.putExtra("nomor",surat.getNomor());
+                intent.putExtra("url",surat.getAudio());
                 context.startActivity(intent);
             }
         });
