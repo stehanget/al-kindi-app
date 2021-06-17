@@ -33,7 +33,7 @@ public class FeedContentActivity extends AppCompatActivity {
                 .setQuery(reference, Feed.class)
                 .build();
 
-        feedAdapter = new FeedAdapter(options);
+        feedAdapter = new FeedAdapter(FeedContentActivity.this,options);
         rv_feed.setAdapter(feedAdapter);
     }
     @Override protected void onStart()

@@ -1,5 +1,6 @@
 package id.codes.al_kindi_app;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -49,6 +50,8 @@ public class PrayerScheduleActivity extends AppCompatActivity {
     TextView tv_isya_time;
     @BindView(R.id.tv_countdown)
     TextView tv_countdown;
+    @BindView(R.id.tv_countdown_desc)
+    TextView tv_countdown_desc;
     long a = 5000;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -60,6 +63,7 @@ public class PrayerScheduleActivity extends AppCompatActivity {
     }
 
     private void getData() {
+
         AndroidNetworking.get(url)
                 .setPriority(Priority.LOW)
                 .build()
@@ -81,6 +85,7 @@ public class PrayerScheduleActivity extends AppCompatActivity {
                                 tv_maghrib_time.setText(waktu.getString("Maghrib"));
                                 tv_isya_time.setText(waktu.getString("Isha"));
 
+
                                 JSONObject date = data.getJSONObject("date");
                                 tanggal = date.getString("gregorian");
                                 String tanggalFix = null;
@@ -98,15 +103,34 @@ public class PrayerScheduleActivity extends AppCompatActivity {
                                 SimpleDateFormat formatSholat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                 Date dateImsak = formatSholat.parse(tanggalFix+" "+waktu.getString("Imsak")+":00");
                                 Date dateIsya = formatSholat.parse(tanggal+" "+waktu.getString("Isha")+":00");
+                                Date dateFajr = formatSholat.parse(tanggalFix+" "+waktu.getString("Fajr")+":00");
+                                Date dateTerbit = formatSholat.parse(tanggalFix+" "+waktu.getString("Sunrise")+":00");
+                                Date dateDzuhur = formatSholat.parse(tanggal+" "+waktu.getString("Dhuhr")+":00");
+                                Date dateAshar = formatSholat.parse(tanggalFix+" "+waktu.getString("Asr")+":00");
+                                Date dateMaghrib = formatSholat.parse(tanggal+" "+waktu.getString("Maghrib")+":00");
+
                                 SimpleDateFormat formatTanggalSekarang = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                                 String formatSekarang = formatTanggalSekarang.format(new Date());
                                 Date dateNow = formatTanggalSekarang.parse(formatSekarang);
 
 
                                 if(dateNow.before(dateImsak) && dateNow.after(dateIsya)){
-                                    Toast.makeText(PrayerScheduleActivity.this, String.valueOf(dateImsak)+"\n"+String.valueOf(dateNow), Toast.LENGTH_SHORT).show();
-                                }else {
-                                    Toast.makeText(PrayerScheduleActivity.this, "false", Toast.LENGTH_SHORT).show();
+                                    tv_countdown_desc.setText("Menjelang Waktu Imsak");
+                                }else if(dateNow.before(dateFajr) && dateNow.after(dateImsak)){
+                                    tv_countdown_desc.setText("Menjelang Waktu Shubuh");
+                                }else if(dateNow.before(dateTerbit) && dateNow.after(dateFajr)){
+                                    tv_countdown_desc.setText("Menjelang Waktu Terbit");
+                                }else if(dateNow.before(dateDzuhur) && dateNow.after(dateTerbit)){
+                                    tv_countdown_desc.setText("Menjelang Waktu Dhuhur");
+                                }else if(dateNow.before(dateAshar) && dateNow.after(dateDzuhur)){
+                                    tv_countdown_desc.setText("Menjelang Waktu Ashar");
+                                }else if(dateNow.before(dateMaghrib) && dateNow.after(dateAshar)){
+                                    tv_countdown_desc.setText("Menjelang Waktu Maghrib");
+                                }else if(dateNow.before(dateIsya) && dateNow.after(dateMaghrib)){
+                                    tv_countdown_desc.setText("Menjelang Waktu Isya");
+                                }
+                                else {
+                                    tv_countdown_desc.setText("Hubungi Admin");
                                 }
 
                                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
@@ -125,30 +149,18 @@ public class PrayerScheduleActivity extends AppCompatActivity {
                                         Date dateMin = format.parse("00:00");
                                         mills=(dateMax.getTime() -date1.getTime() )+(date2.getTime()-dateMin.getTime());
                                     }
-                                    CountDownTimer countDownTimer = new CountDownTimer(a, 1000) {
 
+                                     new CountDownTimer(mills, 1000) {
                                         public void onTick(long millisUntilFinished) {
                                             String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
                                                     TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
                                                     TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
                                             tv_countdown.setText(hms);
                                         }
-
                                         public void onFinish() {
-                                            Toast.makeText(PrayerScheduleActivity.this, "FInisi", Toast.LENGTH_SHORT).show();
-                                            a = 10000;
-                                            Toast.makeText(PrayerScheduleActivity.this, String.valueOf(a), Toast.LENGTH_SHORT).show();
-                                            this.cancel();
-                                            this.start();
-
+                                            getData();
                                         }
                                     }.start();
-
-             
-
-
-
-
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
