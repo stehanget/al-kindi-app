@@ -158,7 +158,7 @@ public class PrayerScheduleActivity extends AppCompatActivity {
                                             tv_countdown.setText(hms);
                                         }
                                         public void onFinish() {
-                                            getData();
+//                                            getData();
                                         }
                                     }.start();
                                 } catch (ParseException e) {
