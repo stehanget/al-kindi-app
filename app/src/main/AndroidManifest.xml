@@ -18,16 +18,18 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
         <activity android:name=".PrayerScheduleActivity">
+
+        </activity>
+        <activity android:name=".AsmaulHusnaActivity" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:label="@string/title_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AsmaulHusnaActivity" />
-        <activity
-            android:name=".MainMenuActivity"
-            android:label="@string/title_activity_main_menu" />
         <activity android:name=".FeedDetailActivity" />
         <activity android:name=".TafsirActivity" />
         <activity android:name=".QuranContentActivity" />
