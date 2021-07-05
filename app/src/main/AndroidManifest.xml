@@ -24,11 +24,6 @@
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/title_activity_main_menu" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".FeedDetailActivity" />
         <activity android:name=".TafsirActivity" />
@@ -38,7 +33,13 @@
         <activity android:name=".FeedQuotesActivity" />
         <activity android:name=".SplashScreenActivity" />
         <activity android:name=".FeedContentActivity" />
-        <activity android:name=".FeedDuniaSainsActivity" />
+        <activity android:name=".FeedDuniaSainsActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".FeedActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignUpActivity" />
