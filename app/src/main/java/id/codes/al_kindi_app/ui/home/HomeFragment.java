@@ -36,6 +36,7 @@ import java.util.Locale;
 
 import id.codes.al_kindi_app.AsmaulHusnaActivity;
 import id.codes.al_kindi_app.FeedContentActivity;
+import id.codes.al_kindi_app.FeedDuniaSainsActivity;
 import id.codes.al_kindi_app.FeedQuotesActivity;
 import id.codes.al_kindi_app.PrayerScheduleActivity;
 import id.codes.al_kindi_app.QiblaDirectionActivity;
@@ -88,7 +89,7 @@ public class HomeFragment extends Fragment {
         btn_menu_dunia_sains.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), FeedContentActivity.class);
+                Intent intent = new Intent(getContext(), FeedDuniaSainsActivity.class);
                 startActivity(intent);
             }
         });
