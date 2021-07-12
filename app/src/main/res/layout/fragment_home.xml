@@ -426,7 +426,152 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_menu_8" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--        TODO: Make News Card-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_menu_9"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/home_menu_shape_1"
+                android:elevation="@dimen/_5sdp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_menu_10"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="@dimen/_43sdp"
+                    android:layout_height="@dimen/_43sdp"
+                    android:src="@drawable/home_menu_icon_5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:gravity="center_horizontal|top"
+                android:text="Materi"
+                android:textColor="#000000"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_menu_9"
+                app:layout_constraintStart_toStartOf="@+id/btn_menu_9"
+                app:layout_constraintTop_toBottomOf="@+id/btn_menu_9" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_menu_10"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/home_menu_shape_1"
+                android:elevation="@dimen/_5sdp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_menu_11"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_menu_9"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="@dimen/_43sdp"
+                    android:layout_height="@dimen/_43sdp"
+                    android:src="@drawable/home_menu_icon_6"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:gravity="center_horizontal|top"
+                android:text="Kuis"
+                android:textColor="#000000"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_menu_10"
+                app:layout_constraintStart_toStartOf="@+id/btn_menu_10"
+                app:layout_constraintTop_toBottomOf="@+id/btn_menu_10" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_menu_11"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/home_menu_shape_1"
+                android:elevation="@dimen/_5sdp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_menu_12"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_menu_10"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="@dimen/_43sdp"
+                    android:layout_height="@dimen/_43sdp"
+                    android:src="@drawable/home_menu_icon_7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:gravity="center_horizontal|top"
+                android:text="Ayo Beliterasi"
+                android:textColor="#000000"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_menu_11"
+                app:layout_constraintStart_toStartOf="@+id/btn_menu_11"
+                app:layout_constraintTop_toBottomOf="@+id/btn_menu_11" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_menu_12"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/home_menu_shape_1"
+                android:elevation="@dimen/_5sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_menu_11"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="@dimen/_43sdp"
+                    android:layout_height="@dimen/_43sdp"
+                    android:src="@drawable/home_menu_icon_8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:gravity="center_horizontal|top"
+                android:text="Popcast"
+                android:textColor="#000000"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_menu_12"
+                app:layout_constraintStart_toStartOf="@+id/btn_menu_12"
+                app:layout_constraintTop_toBottomOf="@+id/btn_menu_12" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
