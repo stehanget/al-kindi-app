@@ -1,21 +1,19 @@
 package id.codes.al_kindi_app.Model;
 
 public class Feed {
-    String kategori,judul,tanggal_post;
+    String judul,tanggal_post,url,isi,jenjang,mapel;
     int like;
 
     public Feed(){
         
     }
-    public Feed(String kategori, String judul, String tanggal_post, int like) {
-        this.kategori = kategori;
-        this.judul = judul;
-        this.tanggal_post = tanggal_post;
-        this.like = like;
+
+    public String getJenjang() {
+        return jenjang;
     }
 
-    public String getKategori() {
-        return kategori;
+    public String getMapel() {
+        return mapel;
     }
 
     public String getJudul() {
@@ -24,6 +22,14 @@ public class Feed {
 
     public String getTanggal_post() {
         return tanggal_post;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getIsi() {
+        return isi;
     }
 
     public int getLike() {

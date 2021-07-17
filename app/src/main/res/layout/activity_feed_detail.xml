@@ -20,22 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.smarteist.autoimageslider.SliderView
-            android:id="@+id/imageSlider"
+        <ImageView
+            android:id="@+id/img_detail_content"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_240sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:sliderAnimationDuration="600"
-            app:sliderIndicatorAnimationDuration="600"
-            app:sliderIndicatorGravity="center_horizontal|bottom"
-            app:sliderIndicatorMargin="@dimen/_15sdp"
-            app:sliderIndicatorOrientation="horizontal"
-            app:sliderIndicatorPadding="@dimen/_3sdp"
-            app:sliderIndicatorRadius="@dimen/_2sdp"
-            app:sliderIndicatorSelectedColor="#FFF"
-            app:sliderIndicatorUnselectedColor="#48FFFFFF"
-            app:sliderStartAutoCycle="true" />
+/>
 
         <ImageView
             android:id="@+id/imageView4"
@@ -58,7 +49,7 @@
             android:textColor="#000000"
             android:textSize="@dimen/_14ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
+            app:layout_constraintTop_toBottomOf="@+id/img_detail_content" />
 
         <TextView
             android:id="@+id/tv_detail_tgl_feed"

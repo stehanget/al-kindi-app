@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,6 +30,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import id.codes.al_kindi_app.Model.User;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -38,10 +42,13 @@ public class SignUpActivity extends AppCompatActivity {
     EditText et_confirm_password_input;
     @BindView(R.id.btn_signup)
     ConstraintLayout btn_signup;
+    @BindView(R.id.et_jenjang_input)
+    Spinner et_jenjang_input;
 
     @BindView(R.id.tv_login)
     TextView tv_login;
     private FirebaseAuth mAuth;
+    DatabaseReference reference;
 
     boolean isError1 = true;
     boolean isError2 = true;
@@ -54,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         btn_signup.setEnabled(false);
-
+        reference = FirebaseDatabase.getInstance().getReference("user");
         tv_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +160,8 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            User user = new User(et_jenjang_input.getSelectedItem().toString(),et_email_input.getText().toString());
+                            reference.child(task.getResult().getUser().getUid()).setValue(user);
                             pDialog.dismissWithAnimation();
                             new SweetAlertDialog(SignUpActivity.this, SweetAlertDialog.SUCCESS_TYPE)
                                     .setTitleText("Yeay")
@@ -168,6 +177,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     .show();
 
                         }else{
+                            pDialog.dismissWithAnimation();
                             new SweetAlertDialog(SignUpActivity.this, SweetAlertDialog.ERROR_TYPE)
                                     .setTitleText("Yah")
                                     .setContentText("Pendaftaran gagal, silahkan cek koneksi anda !")

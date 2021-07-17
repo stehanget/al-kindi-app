@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,63 +15,53 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import id.codes.al_kindi_app.FeedDetailActivity;
 import id.codes.al_kindi_app.Model.Feed;
+import id.codes.al_kindi_app.Model.Quran;
 import id.codes.al_kindi_app.R;
 
-public class FeedAdapter extends FirebaseRecyclerAdapter<Feed, FeedAdapter.feedViewholder> {
+public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder>{
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    Context context;
-    public FeedAdapter(Context context, @NonNull FirebaseRecyclerOptions<Feed> options) {
-        super(options);
+    private Context context;
+    private List<Feed> feedArrayList; //inisialisasi List dengan object DataMahasiswa
+    public FeedAdapter(Context context , List<Feed> feedArrayList) {
         this.context = context;
+        this.feedArrayList = feedArrayList;
     }
 
     @NonNull
     @Override
-    public feedViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view
-                = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_rv_feed, parent, false);
-        return new FeedAdapter.feedViewholder(view);
+    public FeedAdapter.FeedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_feed, parent, false);
+        FeedAdapter.FeedViewHolder holder = new FeedAdapter.FeedViewHolder(v); //inisialisasi ViewHolder
+        return holder;
     }
+
     @Override
-    protected void onBindViewHolder(@NonNull feedViewholder holder, int position, @NonNull Feed model) {
-        holder.tv_kategori.setText(model.getKategori());
-        holder.tv_title.setText(model.getJudul());
-        holder.tv_post_time.setText(model.getTanggal_post());
-        holder.tv_total_like.setText(String.valueOf(model.getLike()));
-        holder.cl_feed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, FeedDetailActivity.class);
-                intent.putExtra("judul",model.getJudul());
-                intent.putExtra("tanggal",model.getTanggal_post());
-                context.startActivity(intent);
-            }
-        });
+    public void onBindViewHolder(@NonNull FeedAdapter.FeedViewHolder holder, int position) {
+        Feed feed = feedArrayList.get(position);
+        holder.tv_title_item.setText(feed.getJudul());
+        holder.tv_total_like.setText(String.valueOf(feed.getLike()));
+
     }
 
-    class feedViewholder extends RecyclerView.ViewHolder {
-        TextView tv_kategori, tv_title, tv_post_time,tv_total_like;
-        ConstraintLayout cl_feed;
+    @Override
+    public int getItemCount() {
+        return feedArrayList.size();
+    }
 
-        public feedViewholder(@NonNull View itemView) {
+    public class FeedViewHolder extends RecyclerView.ViewHolder {
+        ImageView iv_feed_item;
+        TextView tv_title_item,tv_post_time,tv_total_like;
+        public FeedViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_kategori = itemView.findViewById(R.id.tv_category_item);
-            tv_title = itemView.findViewById(R.id.tv_title_item);
+            iv_feed_item = itemView.findViewById(R.id.iv_item_feed);
+            tv_title_item = itemView.findViewById(R.id.tv_title_item);
             tv_post_time = itemView.findViewById(R.id.tv_post_time);
             tv_total_like = itemView.findViewById(R.id.tv_total_like);
-            cl_feed = itemView.findViewById(R.id.cl_feed);
         }
-
-
     }
-
 }

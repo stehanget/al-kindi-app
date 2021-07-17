@@ -50,14 +50,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btn_menu_materi"
+                android:id="@+id/btn_biologi"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_92sdp"
                 android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginEnd="@dimen/_40sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_menu_kuis"
+                app:layout_constraintBottom_toTopOf="@+id/btn_kimia"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="Materi"
+                        android:text="Biologi"
                         android:textAlignment="center"
                         android:textColor="#FABA00"
                         android:textSize="@dimen/_14ssp"
@@ -85,17 +85,17 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btn_menu_kuis"
+                android:id="@+id/btn_kimia"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_92sdp"
                 android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginEnd="@dimen/_40sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_menu_literasi"
+                app:layout_constraintBottom_toTopOf="@+id/btn_fisika"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_menu_materi">
+                app:layout_constraintTop_toBottomOf="@+id/btn_biologi">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="Kuis"
+                        android:text="Kimia"
                         android:textAlignment="center"
                         android:textColor="#FABA00"
                         android:textSize="@dimen/_14ssp"
@@ -119,7 +119,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btn_menu_literasi"
+                android:id="@+id/btn_fisika"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_92sdp"
                 android:layout_marginStart="@dimen/_40sdp"
@@ -129,7 +129,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/btn_menu_ilmuan"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_menu_kuis">
+                app:layout_constraintTop_toBottomOf="@+id/btn_kimia">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -141,7 +141,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="Ayo Beliterasi"
+                        android:text="Fisika"
                         android:textAlignment="center"
                         android:textColor="#FABA00"
                         android:textSize="@dimen/_14ssp"
@@ -163,7 +163,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_menu_literasi">
+                app:layout_constraintTop_toBottomOf="@+id/btn_fisika">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

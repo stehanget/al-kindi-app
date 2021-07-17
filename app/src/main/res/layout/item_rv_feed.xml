@@ -43,26 +43,16 @@
             android:padding="@dimen/_12sdp" >
 
             <TextView
-                android:id="@+id/tv_category_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ilmuwan Kimia"
-                android:textColor="#FABA00"
-                android:textSize="@dimen/_8ssp"
-                android:fontFamily="@font/montserrat_bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/tv_title_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:text="Biografi Al Kindi, The Great Arab Philosofer"
                 android:textColor="#000000"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_category_item" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_post_time"

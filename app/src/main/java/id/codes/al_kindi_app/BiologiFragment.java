@@ -23,16 +23,7 @@ public class BiologiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_biologi, container, false);
-        ArrayList<String> kimiaItem = new ArrayList<>();
-        kimiaItem.add("Materi Biologi 1");
-        kimiaItem.add("Materi Biologi 2");
-        kimiaItem.add("Materi Biologi 3");
-        kimiaItem.add("Materi Biologi 4");
-        kimiaItem.add("Materi Biologi 5");
-        rv_kimia = root.findViewById(R.id.rv_kimia);
-        rv_kimia.setLayoutManager(new LinearLayoutManager(getContext()));
-        kimiaAdapter = new KimiaAdapter(getContext(), kimiaItem);
-        rv_kimia.setAdapter(kimiaAdapter);
+
         return root;
     }
 }

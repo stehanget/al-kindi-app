@@ -22,7 +22,7 @@
             android:id="@+id/iv_logo_image"
             android:layout_width="@dimen/_64sdp"
             android:layout_height="@dimen/_64sdp"
-            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:src="@drawable/logo_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +38,34 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_logo_image" />
 
         <TextView
+            android:id="@+id/tv_jenjang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_56sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Jenjang"
+            android:textColor="#05B0F0"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo_text" />
+
+        <Spinner
+            android:id="@+id/et_jenjang_input"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_56sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_56sdp"
+            android:background="@drawable/input_shape_1"
+            android:hint="Pilih Jenjang anda"
+            android:entries="@array/german_familienname"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="@dimen/_21sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_jenjang" />
+
+        <TextView
             android:id="@+id/tv_email_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,12 +75,12 @@
             android:textColor="#05B0F0"
             android:textSize="@dimen/_14ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_logo_text" />
+            app:layout_constraintTop_toBottomOf="@+id/et_jenjang_input" />
 
         <EditText
             android:id="@+id/et_email_input"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_56sdp"
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_56sdp"
@@ -79,7 +107,7 @@
         <EditText
             android:id="@+id/et_password_input"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_56sdp"
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_56sdp"
@@ -106,14 +134,14 @@
         <EditText
             android:id="@+id/et_confirm_password_input"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_56sdp"
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_56sdp"
             android:background="@drawable/input_shape_1"
             android:hint="Masukkan Ulang Password"
-            android:inputType="textPassword"
             android:paddingHorizontal="@dimen/_21sdp"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="@+id/et_password_input"
             app:layout_constraintStart_toStartOf="@+id/et_password_input"
             app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password_label" />
