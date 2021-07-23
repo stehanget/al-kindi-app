@@ -54,9 +54,7 @@ public class FeedContentActivity extends AppCompatActivity {
                     Feed feed = ds.getValue(Feed.class);
                     if (feed.getJenjang().equals(jenjang)&&feed.getMapel().equals(mapel)){
                         arrayList.add(feed);
-                        Toast.makeText(FeedContentActivity.this, String.valueOf(arrayList), Toast.LENGTH_SHORT).show();
                     }else {
-                        Toast.makeText(FeedContentActivity.this, "no data", Toast.LENGTH_SHORT).show();
                     }
 
                 }

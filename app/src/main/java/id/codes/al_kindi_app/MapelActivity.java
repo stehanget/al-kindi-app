@@ -35,5 +35,23 @@ public class MapelActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_kimia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapelActivity.this,FeedContentActivity.class);
+                intent.putExtra("jenjang2",jenjang);
+                intent.putExtra("mapel2","kimia");
+                startActivity(intent);
+            }
+        });
+        btn_fisika.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapelActivity.this,FeedContentActivity.class);
+                intent.putExtra("jenjang2",jenjang);
+                intent.putExtra("mapel2","fisika");
+                startActivity(intent);
+            }
+        });
     }
 }
