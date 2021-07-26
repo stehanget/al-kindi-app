@@ -86,13 +86,13 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        btn_menu_dunia_sains.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), FeedDuniaSainsActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btn_menu_dunia_sains.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), FeedDuniaSainsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         btn_menu_waktu_sholat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
