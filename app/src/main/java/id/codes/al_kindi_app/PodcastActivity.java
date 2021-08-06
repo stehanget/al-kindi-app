@@ -1,20 +1,30 @@
 package id.codes.al_kindi_app;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DetailPlaylist extends AppCompatActivity {
+public class PodcastActivity extends AppCompatActivity {
+    @BindView(R.id.img_podcast)
+    ImageView img_podcast;
+    @BindView(R.id.tv_nama)
+    TextView tv_nama;
+    @BindView(R.id.tv_desc)
+    TextView tv_desc;
+    @BindView(R.id.tv_author)
+    TextView tv_author;
     @BindView(R.id.img_play)
     ImageView img_play;
     @BindView(R.id.img_stop)
@@ -25,8 +35,17 @@ public class DetailPlaylist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_playlist);
+        setContentView(R.layout.activity_podcast);
         ButterKnife.bind(this);
+
+        Glide.with(this).load(getIntent().getStringExtra("gambar"))
+                .into(img_podcast);
+        tv_nama.setText(getIntent().getStringExtra("judul"));
+        tv_desc.setText(getIntent().getStringExtra("desc"));
+        tv_author.setText("Oleh : "+getIntent().getStringExtra("author"));
+
+        img_stop.setVisibility(View.GONE);
+
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,10 +54,8 @@ public class DetailPlaylist extends AppCompatActivity {
             }
         });
 
-        img_stop.setVisibility(View.GONE);
-
         mediaPlayer = new MediaPlayer();
-        String link = "https://files-islamdownload-2ae88485.nos.jkt-1.neo.id/ID/123862/v2/001_Al-Fatihah.mp3"; // your URL here
+        String link = getIntent().getStringExtra("podcast"); // your URL here
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
             mediaPlayer.setDataSource(link);
@@ -68,6 +85,7 @@ public class DetailPlaylist extends AppCompatActivity {
             }
         });
 
+
     }
 
     @Override
@@ -75,10 +93,5 @@ public class DetailPlaylist extends AppCompatActivity {
         super.onBackPressed();
         mediaPlayer.release();
         finish();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 }

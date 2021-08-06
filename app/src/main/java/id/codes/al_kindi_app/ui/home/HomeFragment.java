@@ -39,6 +39,7 @@ import id.codes.al_kindi_app.DoaHarian;
 import id.codes.al_kindi_app.FeedContentActivity;
 import id.codes.al_kindi_app.FeedDuniaSainsActivity;
 import id.codes.al_kindi_app.FeedQuotesActivity;
+import id.codes.al_kindi_app.ListPodcastActivity;
 import id.codes.al_kindi_app.PrayerScheduleActivity;
 import id.codes.al_kindi_app.QiblaDirectionActivity;
 import id.codes.al_kindi_app.QuranActivity;
@@ -72,7 +73,7 @@ public class HomeFragment extends Fragment {
         }
 
         ConstraintLayout btn_menu_quran = root.findViewById(R.id.btn_menu_1);
-        ConstraintLayout btn_menu_dunia_sains = root.findViewById(R.id.btn_menu_2);
+        ConstraintLayout btn_menu_podcast = root.findViewById(R.id.btn_menu_2);
         ConstraintLayout btn_menu_waktu_sholat = root.findViewById(R.id.btn_menu_3);
         ConstraintLayout btn_menu_arah_kiblat = root.findViewById(R.id.btn_menu_4);
         ConstraintLayout btn_menu_tafsir_ = root.findViewById(R.id.btn_menu_5);
@@ -87,13 +88,13 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-//        btn_menu_dunia_sains.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getContext(), FeedDuniaSainsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        btn_menu_podcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ListPodcastActivity.class);
+                startActivity(intent);
+            }
+        });
         btn_menu_waktu_sholat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
