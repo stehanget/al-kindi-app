@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,9 @@ public class FeedQuotesActivity extends AppCompatActivity {
     RecyclerView rv_feed_quotes;
     QuotesAdapter quotesAdapter;
     DatabaseReference reference;
+    @BindView(R.id.imageView4)
+    ImageView btn_back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,12 @@ public class FeedQuotesActivity extends AppCompatActivity {
                 = new FirebaseRecyclerOptions.Builder<Quotes>()
                 .setQuery(reference, Quotes.class)
                 .build();
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         quotesAdapter = new QuotesAdapter(options);
         rv_feed_quotes.setAdapter(quotesAdapter);

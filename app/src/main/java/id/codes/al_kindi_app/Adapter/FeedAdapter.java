@@ -45,6 +45,18 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         Feed feed = feedArrayList.get(position);
         holder.tv_title_item.setText(feed.getJudul());
         holder.tv_total_like.setText(String.valueOf(feed.getLike()));
+        holder.tv_post_time.setText(feed.getCreated_at());
+        holder.cl_feed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,FeedDetailActivity.class);
+                intent.putExtra("judul",feed.getJudul());
+                intent.putExtra("gambar",feed.getGambar());
+                intent.putExtra("created_at",feed.getCreated_at());
+                intent.putExtra("content",feed.getContent());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -55,13 +67,15 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
 
     public class FeedViewHolder extends RecyclerView.ViewHolder {
         ImageView iv_feed_item;
-        TextView tv_title_item,tv_post_time,tv_total_like;
+        TextView tv_title_item,tv_post_time,tv_total_like,tv_tgl_feed;
+        ConstraintLayout cl_feed;
         public FeedViewHolder(@NonNull View itemView) {
             super(itemView);
             iv_feed_item = itemView.findViewById(R.id.iv_item_feed);
             tv_title_item = itemView.findViewById(R.id.tv_title_item);
             tv_post_time = itemView.findViewById(R.id.tv_post_time);
             tv_total_like = itemView.findViewById(R.id.tv_total_like);
+            cl_feed = itemView.findViewById(R.id.cl_feed);
         }
     }
 }

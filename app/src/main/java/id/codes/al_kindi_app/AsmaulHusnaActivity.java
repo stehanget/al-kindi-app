@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -28,6 +30,8 @@ public class AsmaulHusnaActivity extends AppCompatActivity {
     ArrayList<AsmaulHusna> listAsmaulHusna; // Create an ArrayList object
     @BindView(R.id.rv_asmaul_husna)
     RecyclerView rv_asmaul_husna;
+    @BindView(R.id.imageView4)
+    ImageView btn_back;
 
 
     @Override
@@ -35,6 +39,12 @@ public class AsmaulHusnaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asmaul_husna);
         ButterKnife.bind(this);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         rv_asmaul_husna = findViewById(R.id.rv_asmaul_husna); //findId recyclerView yg ada pada activity_read_all.xml
 
         rv_asmaul_husna.setHasFixedSize(true); //agar recyclerView tergambar lebih cepat

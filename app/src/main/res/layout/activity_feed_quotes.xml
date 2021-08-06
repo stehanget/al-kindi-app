@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_122sdp"
+            android:layout_height="@dimen/_80sdp"
             android:background="#FABA00"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
-            android:text="FEED"
+            android:text="Quotes Inspirasi"
             android:fontFamily="@font/montserrat_semibold"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/_14ssp"
@@ -58,88 +58,6 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_feed_menu"
             app:layout_constraintStart_toStartOf="@+id/tv_feed_menu"
             app:layout_constraintTop_toBottomOf="@+id/tv_feed_menu" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_24sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/v_active_feed_menu">
-
-            <TextView
-                android:id="@+id/tv_dunia_sains_menu"
-                android:layout_width="@dimen/_56sdp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
-                android:gravity="center_horizontal"
-                android:text="Dunia Sains"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintEnd_toStartOf="@+id/tv_ilmuwan_kimia_menu"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/v_active_dunia_sains_menu"
-                android:layout_width="@dimen/_7sdp"
-                android:layout_height="@dimen/_7sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/ellipse_shape_1"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="@+id/tv_dunia_sains_menu"
-                app:layout_constraintStart_toStartOf="@+id/tv_dunia_sains_menu"
-                app:layout_constraintTop_toBottomOf="@+id/tv_dunia_sains_menu" />
-
-            <TextView
-                android:id="@+id/tv_ilmuwan_kimia_menu"
-                android:layout_width="@dimen/_56sdp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
-                android:gravity="center_horizontal"
-                android:text="Ilmuwan Kimia"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintEnd_toStartOf="@+id/tv_quotes_inspirasi_menu"
-                app:layout_constraintStart_toEndOf="@+id/tv_dunia_sains_menu"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/v_active_ilmuwan_kimia_menu"
-                android:layout_width="@dimen/_7sdp"
-                android:layout_height="@dimen/_7sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/ellipse_shape_1"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="@+id/tv_ilmuwan_kimia_menu"
-                app:layout_constraintStart_toStartOf="@+id/tv_ilmuwan_kimia_menu"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ilmuwan_kimia_menu" />
-
-            <TextView
-                android:id="@+id/tv_quotes_inspirasi_menu"
-                android:layout_width="@dimen/_56sdp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
-                android:gravity="center_horizontal"
-                android:text="Quotes Inspirasi"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_ilmuwan_kimia_menu"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/v_active_quotes_inspirasi_menu"
-                android:layout_width="@dimen/_7sdp"
-                android:layout_height="@dimen/_7sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/ellipse_shape_1"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/tv_quotes_inspirasi_menu"
-                app:layout_constraintStart_toStartOf="@+id/tv_quotes_inspirasi_menu"
-                app:layout_constraintTop_toBottomOf="@+id/tv_quotes_inspirasi_menu" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_feed_quotes"

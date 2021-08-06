@@ -8,6 +8,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -19,6 +20,8 @@ import butterknife.ButterKnife;
 public class QiblaDirectionActivity extends AppCompatActivity implements SensorEventListener {
     @BindView(R.id.img_qibla_compass)
     ImageView img_qibla_compass;
+    @BindView(R.id.imageView4)
+    ImageView btn_back;
 
     private static SensorManager sensorManager;
     private static Sensor sensor;
@@ -29,6 +32,12 @@ public class QiblaDirectionActivity extends AppCompatActivity implements SensorE
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qibla_direction);
         ButterKnife.bind(this);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);

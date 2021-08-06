@@ -37,6 +37,7 @@ import id.codes.al_kindi_app.R;
 public class DashboardFragment extends Fragment {
 
     ConstraintLayout btn_materi;
+        CardView btn_menu_literasi,btn_menu_ilmuan;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     DatabaseReference databaseReference;
@@ -46,6 +47,8 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         btn_materi = root.findViewById(R.id.btn_materi);
+        btn_menu_ilmuan = root.findViewById(R.id.btn_menu_ilmuan);
+        btn_menu_literasi = root.findViewById(R.id.btn_menu_literasi);
 
         btn_materi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +63,7 @@ public class DashboardFragment extends Fragment {
                         jenjang = user.getJenjang();
                         Intent intent = new Intent(getContext(), MapelActivity.class);
                         intent.putExtra("jenjang", jenjang);
+                        intent.putExtra("type","feed");
                         startActivity(intent);
                     }
 
@@ -69,6 +73,55 @@ public class DashboardFragment extends Fragment {
                     }
                 });
 
+
+            }
+        });
+
+        btn_menu_literasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseUser = firebaseAuth.getInstance().getCurrentUser();
+                databaseReference = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.getUid());
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getValue(User.class);
+                        jenjang = user.getJenjang();
+                        Intent intent = new Intent(getContext(), MapelActivity.class);
+                        intent.putExtra("jenjang", jenjang);
+                        intent.putExtra("type","literasi");
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
+        btn_menu_ilmuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseUser = firebaseAuth.getInstance().getCurrentUser();
+                databaseReference = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.getUid());
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getValue(User.class);
+                        jenjang = user.getJenjang();
+                        Intent intent = new Intent(getContext(), MapelActivity.class);
+                        intent.putExtra("jenjang", jenjang);
+                        intent.putExtra("type","scientist");
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
         });

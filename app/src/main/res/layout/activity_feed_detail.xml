@@ -9,7 +9,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_240sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -73,16 +73,18 @@
         <TextView
             android:id="@+id/tv_detail_isi_feed"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_17sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_17sdp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat_regular"
             android:justificationMode="inter_word"
             android:text="Aurora atau cahaya kutub adalah fenomena alam yang menyerupai pancaran cahaya yang menyala-nyala pada lapisan ionosfer dari sebuah planet sebagai akibat adanya interaksi antara medan magnetik yang dimiliki planet tersebut dengan partikel bermuatan yang dipancarkan oleh Matahari (angin surya).
 Di bumi, aurora terjadi di daerah di sekitar Kutub Utara dan Kutub Selatan magnetiknya. Aurora yang terjadi di daerah sebelah Utara dikenal dengan nama Aurora Borealis"
             android:textColor="#000000"
             android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_detail_tgl_feed" />

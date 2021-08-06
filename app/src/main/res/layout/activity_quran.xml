@@ -48,70 +48,15 @@
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_59sdp"
-            android:layout_marginStart="@dimen/_17sdp"
-            android:layout_marginTop="@dimen/_58sdp"
-            android:layout_marginEnd="@dimen/_17sdp"
-            app:cardBackgroundColor="#ECFFFFFF"
-            app:cardCornerRadius="@dimen/_20sdp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/_10sdp">
-
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
-                    android:src="@drawable/ic_outline_book_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_28sdp"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:text="Terakhir Dibaca"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/_10ssp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView11"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_last_read"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Al-Fatihah : 1"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btn_nav_surat"
             android:layout_width="@dimen/_84sdp"
             android:layout_height="@dimen/_29sdp"
-            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/navigation_shape_2"
-            app:layout_constraintEnd_toStartOf="@+id/btn_nav_juz"
+            app:layout_constraintEnd_toStartOf="@+id/btn_playlist"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -139,50 +84,14 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_nav_surat" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_nav_juz"
+            android:id="@+id/btn_playlist"
             android:layout_width="@dimen/_84sdp"
             android:layout_height="@dimen/_29sdp"
-            android:layout_marginTop="@dimen/_24sdp"
-            android:background="@drawable/navigation_shape_2"
-            app:layout_constraintEnd_toStartOf="@+id/btn_nav_favorit"
-            app:layout_constraintStart_toEndOf="@+id/btn_nav_surat"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Juz"
-                android:textColor="#000000"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/v_active_nav_juz"
-            android:layout_width="@dimen/_7sdp"
-            android:layout_height="@dimen/_7sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:background="@drawable/ellipse_shape_2"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/btn_nav_juz"
-            app:layout_constraintStart_toStartOf="@+id/btn_nav_juz"
-            app:layout_constraintTop_toBottomOf="@+id/btn_nav_juz" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_nav_favorit"
-            android:layout_width="@dimen/_84sdp"
-            android:layout_height="@dimen/_29sdp"
-            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/navigation_shape_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_nav_juz"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2">
+            app:layout_constraintStart_toEndOf="@+id/btn_nav_surat"
+            app:layout_constraintTop_toTopOf="@+id/btn_nav_surat">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -205,22 +114,24 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/ellipse_shape_2"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/btn_nav_favorit"
-            app:layout_constraintStart_toStartOf="@+id/btn_nav_favorit"
-            app:layout_constraintTop_toBottomOf="@+id/btn_nav_favorit" />
+            app:layout_constraintEnd_toEndOf="@+id/btn_playlist"
+            app:layout_constraintStart_toStartOf="@+id/btn_playlist"
+            app:layout_constraintTop_toBottomOf="@+id/btn_playlist" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/_17sdp"
-            android:layout_marginTop="@dimen/_194sdp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="22dp"
             android:layout_marginBottom="@dimen/_40sdp"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/cardView2"
-            app:layout_constraintStart_toStartOf="@+id/cardView2"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_active_nav_surat">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

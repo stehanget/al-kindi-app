@@ -122,6 +122,7 @@
                 android:layout_marginTop="@dimen/_17sdp"
                 android:fontFamily="@font/montserrat_medium"
                 android:textColor="#FABA00"
+                android:text="00:29:32"
                 android:textSize="@dimen/_28ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -217,6 +218,7 @@
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:src="@drawable/ic_volume_on"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout6"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/constraintLayout6" />
@@ -281,6 +283,7 @@
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:src="@drawable/ic_volume_off"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout7"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/constraintLayout7" />
@@ -345,6 +348,7 @@
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:src="@drawable/ic_volume_off"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout8"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/constraintLayout8" />
@@ -409,6 +413,7 @@
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:src="@drawable/ic_volume_off"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout9"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/constraintLayout9" />
@@ -473,6 +478,7 @@
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:src="@drawable/ic_volume_off"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout10"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/constraintLayout10" />
@@ -537,6 +543,7 @@
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:src="@drawable/ic_volume_off"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout11"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/constraintLayout11" />
@@ -601,6 +608,7 @@
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:src="@drawable/ic_volume_off"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout12"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/constraintLayout12" />

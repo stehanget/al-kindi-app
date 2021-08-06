@@ -1,9 +1,7 @@
 package id.codes.al_kindi_app.Model;
 
 public class Tafsir {
-       String nama,pdf;
-       String gambar;
-
+    String created_at,gambar,nama,pdf,update_at;
     public Tafsir(){
 
     }
@@ -23,6 +21,14 @@ public class Tafsir {
 
     public String getPdf() {
         return pdf;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public String getUpdate_at() {
+        return update_at;
     }
 }
 

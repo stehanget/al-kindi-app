@@ -44,7 +44,7 @@
             android:fontFamily="@font/montserrat_semibold"
             android:text="Al - Fatihah"
             android:textColor="#000000"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/tv_arti"
@@ -53,6 +53,6 @@
             android:fontFamily="@font/montserrat_regular"
             android:text="Pembukaan (7 ayat)"
             android:textColor="#000000"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_10ssp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

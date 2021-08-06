@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -23,11 +25,20 @@ public class TafsirActivity extends AppCompatActivity {
     RecyclerView rv_tafsir;
     TafsirAdapter tafsirAdapter;
     DatabaseReference reference;
+    @BindView(R.id.imageView4)
+    ImageView btn_back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tafsir);
         ButterKnife.bind(this);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         reference = FirebaseDatabase.getInstance().getReference().child("tafsir");
         rv_tafsir.setLayoutManager(new GridLayoutManager(this,3));
         FirebaseRecyclerOptions<Tafsir> options

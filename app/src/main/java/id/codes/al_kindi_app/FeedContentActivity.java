@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -32,12 +34,20 @@ public class FeedContentActivity extends AppCompatActivity {
     FeedAdapter feedAdapter;
     DatabaseReference reference;
     List<Feed> arrayList;
+    @BindView(R.id.imageView4)
+    ImageView btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_content);
         ButterKnife.bind(this);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
 
@@ -45,7 +55,7 @@ public class FeedContentActivity extends AppCompatActivity {
         String mapel = getIntent().getStringExtra("mapel2");
 //        Toast.makeText(this, jenjang, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(this, mapel, Toast.LENGTH_SHORT).show();
-        reference = FirebaseDatabase.getInstance().getReference().child("feed");
+        reference = FirebaseDatabase.getInstance().getReference().child(getIntent().getStringExtra("type2"));
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

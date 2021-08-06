@@ -1,6 +1,7 @@
 package id.codes.al_kindi_app.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import id.codes.al_kindi_app.DetailTafsirActivity;
 import id.codes.al_kindi_app.Model.Tafsir;
 import id.codes.al_kindi_app.R;
 
@@ -37,7 +39,16 @@ public class TafsirAdapter extends FirebaseRecyclerAdapter<Tafsir, TafsirAdapter
     protected void onBindViewHolder(@NonNull tafsirViewHolder holder, int position, @NonNull Tafsir model) {
         Glide.with(context).load(model.getGambar()).into(holder.img_item);
         holder.tv_item.setText(model.getNama());
-        Toast.makeText(context, model.getGambar(), Toast.LENGTH_SHORT).show();
+        holder.ll_content.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailTafsirActivity.class);
+                intent.putExtra("url",model.getPdf());
+                context.startActivity(intent);
+            }
+        });
+
+
     }
 
     @NonNull
@@ -47,6 +58,12 @@ public class TafsirAdapter extends FirebaseRecyclerAdapter<Tafsir, TafsirAdapter
                 = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_rv_tafsir, parent, false);
         return new TafsirAdapter.tafsirViewHolder(view);
+    }
+
+    @Override
+    public int getItemCount() {
+        return super.getItemCount();
+
     }
 
     public class tafsirViewHolder extends RecyclerView.ViewHolder {

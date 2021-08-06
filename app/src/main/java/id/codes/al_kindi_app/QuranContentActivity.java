@@ -34,11 +34,9 @@ import id.codes.al_kindi_app.Model.Quran;
 public class QuranContentActivity extends AppCompatActivity {
     @BindView(R.id.rv_ayat)
     RecyclerView rv_ayat;
-    @BindView(R.id.img_play)
-    ImageView img_play;
-    @BindView(R.id.img_stop)
-    ImageView img_stop;
-    MediaPlayer mediaPlayer;
+
+    @BindView(R.id.imageView4)
+    ImageView btn_back;
     ArrayList<Ayat> listAyat; // Create an ArrayList object
     String url = "https://api.npoint.io/99c279bb173a6e28359c/surat/";
     int length;
@@ -50,39 +48,13 @@ public class QuranContentActivity extends AppCompatActivity {
 
         url+=getIntent().getStringExtra("nomor");
         listAyat = new ArrayList<Ayat>();
-
-        img_stop.setVisibility(View.GONE);
-
-        mediaPlayer = new MediaPlayer();
-        String link = "https://files-islamdownload-2ae88485.nos.jkt-1.neo.id/ID/123862/v2/001_Al-Fatihah.mp3"; // your URL here
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        try {
-            mediaPlayer.setDataSource(link);
-            mediaPlayer.prepare(); // might take long! (for buffering, etc)
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        img_play.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                img_play.setVisibility(View.GONE);
-                img_stop.setVisibility(View.VISIBLE);
-                mediaPlayer.start();
-
+            public void onClick(View view) {
+                finish();
             }
         });
 
-        img_stop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                img_play.setVisibility(View.VISIBLE);
-                img_stop.setVisibility(View.GONE);
-                mediaPlayer.pause();
-            }
-        });
 
 
 
