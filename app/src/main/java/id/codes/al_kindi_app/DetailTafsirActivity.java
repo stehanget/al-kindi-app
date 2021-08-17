@@ -37,7 +37,6 @@ public class DetailTafsirActivity extends AppCompatActivity {
                     InputStream input = new URL(url).openStream();
                     pdf_tafsir.fromStream(input)
                             .enableSwipe(true) // allows to block changing pages using swipe
-                            .swipeHorizontal(true)
                             .pageFling(true)
                             .pageFitPolicy(FitPolicy.BOTH)
                              .load();

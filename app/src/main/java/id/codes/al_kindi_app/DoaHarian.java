@@ -21,8 +21,8 @@ public class DoaHarian extends AppCompatActivity {
 
         pdf_doa_harian.fromAsset("doa_harian.pdf")
                 .enableSwipe(true) // allows to block changing pages using swipe
-                .swipeHorizontal(true)
                 .pageFitPolicy(FitPolicy.BOTH) // mode to fit pages in the view
+                .pageFling(true)
                 .load();
 
 

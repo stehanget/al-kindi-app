@@ -31,52 +31,103 @@ public class MapelActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         String type = getIntent().getStringExtra("type");
         String jenjang = getIntent().getStringExtra("jenjang");
-        if (jenjang.equals("Ibtidaiyah")){
-            btn_fisika.setVisibility(View.INVISIBLE);
-            btn_kimia.setVisibility(View.INVISIBLE);
-            txt_menu_materi_biologi.setText("IPA");
-            btn_biologi.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
-                    intent.putExtra("jenjang2", jenjang);
-                    intent.putExtra("mapel2", "ipa");
-                    intent.putExtra("type2", type);
-                    startActivity(intent);
-                }
-            });
-        }else {
-            btn_biologi.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
-                    intent.putExtra("jenjang2", jenjang);
-                    intent.putExtra("mapel2", "biologi");
-                    intent.putExtra("type2", type);
-                    startActivity(intent);
-                }
-            });
+        if (!type.equals("quiz")){
+            if (jenjang.equals("Ibtidaiyah")){
+                btn_fisika.setVisibility(View.INVISIBLE);
+                btn_kimia.setVisibility(View.INVISIBLE);
+                txt_menu_materi_biologi.setText("IPA");
+                btn_biologi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "ipa");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
+            }else {
+                btn_biologi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "biologi");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
 
-            btn_kimia.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
-                    intent.putExtra("jenjang2", jenjang);
-                    intent.putExtra("mapel2", "kimia");
-                    intent.putExtra("type2", type);
-                    startActivity(intent);
-                }
-            });
-            btn_fisika.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
-                    intent.putExtra("jenjang2", jenjang);
-                    intent.putExtra("mapel2", "fisika");
-                    intent.putExtra("type2", type);
-                    startActivity(intent);
-                }
-            });
+                btn_kimia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "kimia");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
+                btn_fisika.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MapelActivity.this, FeedContentActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "fisika");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }else {
+            if (jenjang.equals("Ibtidaiyah")){
+                btn_fisika.setVisibility(View.INVISIBLE);
+                btn_kimia.setVisibility(View.INVISIBLE);
+                txt_menu_materi_biologi.setText("IPA");
+                btn_biologi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MapelActivity.this, ListQuizActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "ipa");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
+            }else {
+                Toast.makeText(this, "quiz", Toast.LENGTH_SHORT).show();
+                btn_biologi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MapelActivity.this, ListQuizActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "biologi");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
+
+                btn_kimia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MapelActivity.this, ListQuizActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "kimia");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
+                btn_fisika.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MapelActivity.this, ListQuizActivity.class);
+                        intent.putExtra("jenjang2", jenjang);
+                        intent.putExtra("mapel2", "fisika");
+                        intent.putExtra("type2", type);
+                        startActivity(intent);
+                    }
+                });
+            }
         }
     }
 }

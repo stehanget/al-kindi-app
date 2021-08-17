@@ -24,23 +24,25 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.codes.al_kindi_app.Adapter.FeedAdapter;
+import id.codes.al_kindi_app.Adapter.QuizAdapter;
 import id.codes.al_kindi_app.Adapter.QuranAdapter;
 import id.codes.al_kindi_app.Model.Feed;
+import id.codes.al_kindi_app.Model.Quiz;
 import id.codes.al_kindi_app.Model.Quran;
 
-public class FeedContentActivity extends AppCompatActivity {
+public class ListQuizActivity extends AppCompatActivity {
     @BindView(R.id.rv_feed)
     RecyclerView rv_feed;
     FeedAdapter feedAdapter;
     DatabaseReference reference;
-    List<Feed> arrayList;
+    List<Quiz> quizList;
     @BindView(R.id.imageView4)
     ImageView btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_content);
+        setContentView(R.layout.activity_list_quiz);
         ButterKnife.bind(this);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,19 +61,19 @@ public class FeedContentActivity extends AppCompatActivity {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                 arrayList = new ArrayList<>();
+                quizList = new ArrayList<>();
                 for(DataSnapshot ds : snapshot.getChildren()) {
-                    Feed feed = ds.getValue(Feed.class);
-                    if (feed.getJenjang().equals(jenjang)&&feed.getMapel().equals(mapel)){
-                        arrayList.add(feed);
+                    Quiz quiz = ds.getValue(Quiz.class);
+                    if (quiz.getJenjang().equals(jenjang)&&quiz.getMapel().equals(mapel)){
+                        quizList.add(quiz);
                     }else {
                     }
 
                 }
                 rv_feed.setHasFixedSize(true); //agar recyclerView tergambar lebih cepat
-                rv_feed.setLayoutManager(new LinearLayoutManager(FeedContentActivity.this));
-                feedAdapter = new FeedAdapter(FeedContentActivity.this,arrayList);
-                rv_feed.setAdapter(feedAdapter);
+                rv_feed.setLayoutManager(new LinearLayoutManager(ListQuizActivity.this));
+                QuizAdapter  quizAdapter = new QuizAdapter(ListQuizActivity.this,quizList);
+                rv_feed.setAdapter(quizAdapter);
             }
 
             @Override

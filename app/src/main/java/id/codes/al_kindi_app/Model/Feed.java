@@ -1,7 +1,7 @@
 package id.codes.al_kindi_app.Model;
 
 public class Feed {
-    String content,created_at,gambar,jenjang,judul,mapel,update_at;
+    String content,created_at,gambar,jenjang,judul,mapel,update_at,key;
     int like;
 
     public Feed(){
@@ -16,6 +16,10 @@ public class Feed {
         this.mapel = mapel;
         this.update_at = update_at;
         this.like = like;
+    }
+
+    public String getKey() {
+        return key;
     }
 
     public String getContent() {
