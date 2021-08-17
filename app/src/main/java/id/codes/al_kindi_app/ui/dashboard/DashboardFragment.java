@@ -150,30 +150,6 @@ public class DashboardFragment extends Fragment {
 
             }
         });
-        btn_menu_ilmuan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firebaseUser = firebaseAuth.getInstance().getCurrentUser();
-                databaseReference = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.getUid());
-                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        User user = snapshot.getValue(User.class);
-                        jenjang = user.getJenjang();
-                        Intent intent = new Intent(getContext(), MapelActivity.class);
-                        intent.putExtra("jenjang", jenjang);
-                        intent.putExtra("type","quiz");
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-            }
-        });
         return root;
     }
 }

@@ -24,6 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.codes.al_kindi_app.Adapter.FeedAdapter;
+import id.codes.al_kindi_app.Adapter.MateriAdapter;
 import id.codes.al_kindi_app.Adapter.QuranAdapter;
 import id.codes.al_kindi_app.Model.Feed;
 import id.codes.al_kindi_app.Model.Quran;
@@ -70,8 +71,13 @@ public class FeedContentActivity extends AppCompatActivity {
                 }
                 rv_feed.setHasFixedSize(true); //agar recyclerView tergambar lebih cepat
                 rv_feed.setLayoutManager(new LinearLayoutManager(FeedContentActivity.this));
-                feedAdapter = new FeedAdapter(FeedContentActivity.this,arrayList);
-                rv_feed.setAdapter(feedAdapter);
+                if (getIntent().getStringExtra("type2").equals("feed")){
+                    MateriAdapter materiAdapter = new MateriAdapter(FeedContentActivity.this,arrayList);
+                    rv_feed.setAdapter(materiAdapter);
+                }else {
+                    feedAdapter = new FeedAdapter(FeedContentActivity.this, arrayList);
+                    rv_feed.setAdapter(feedAdapter);
+                }
             }
 
             @Override

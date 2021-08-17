@@ -66,7 +66,7 @@ public class ListQuizActivity extends AppCompatActivity {
                     Quiz quiz = ds.getValue(Quiz.class);
                     if (quiz.getJenjang().equals(jenjang)&&quiz.getMapel().equals(mapel)){
                         quizList.add(quiz);
-                    }else {
+                        quiz.setKey(ds.getKey());
                     }
 
                 }

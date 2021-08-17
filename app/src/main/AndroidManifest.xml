@@ -17,7 +17,8 @@
         android:theme="@style/Theme.Alkindiapp"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".ListQuizActivity"></activity>
+        <activity android:name=".DetailMateriActivity"></activity>
+        <activity android:name=".ListQuizActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".ListPodcastActivity" />
         <activity android:name=".PodcastActivity" />
