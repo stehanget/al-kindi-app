@@ -1,7 +1,11 @@
 package id.codes.al_kindi_app.Model;
 
 public class Quiz {
-    String key,created_at,updated_at,gambar,judul,mapel,jenjang;
+    String key,created_at,updated_at,gambar,judul,mapel,jenjang,kelas;
+
+    public String getKelas() {
+        return kelas;
+    }
 
     public void setKey(String key) {
         this.key = key;

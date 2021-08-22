@@ -1,13 +1,13 @@
 package id.codes.al_kindi_app.Model;
 
 public class Feed {
-    String content,created_at,gambar,jenjang,judul,mapel,update_at,key;
+    String content,created_at,gambar,jenjang,judul,mapel,update_at,key,kelas;
     int like;
 
     public Feed(){
 
     }
-    public Feed(String content, String created_at, String gambar, String jenjang, String judul, String mapel, String update_at, int like) {
+    public Feed(String content, String created_at, String gambar, String jenjang, String judul, String mapel, String update_at, int like,String kelas) {
         this.content = content;
         this.created_at = created_at;
         this.gambar = gambar;
@@ -16,6 +16,11 @@ public class Feed {
         this.mapel = mapel;
         this.update_at = update_at;
         this.like = like;
+        this.kelas = kelas;
+    }
+
+    public String getKelas() {
+        return kelas;
     }
 
     public String getKey() {

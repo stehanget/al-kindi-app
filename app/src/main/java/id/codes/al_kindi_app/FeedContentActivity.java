@@ -63,7 +63,7 @@ public class FeedContentActivity extends AppCompatActivity {
                  arrayList = new ArrayList<>();
                 for(DataSnapshot ds : snapshot.getChildren()) {
                     Feed feed = ds.getValue(Feed.class);
-                    if (feed.getJenjang().equals(jenjang)&&feed.getMapel().equals(mapel)){
+                    if (feed.getJenjang().equals(jenjang)&&feed.getMapel().equals(mapel)&&feed.getKelas().equals(getIntent().getStringExtra("kelas2"))){
                         arrayList.add(feed);
                     }else {
                     }

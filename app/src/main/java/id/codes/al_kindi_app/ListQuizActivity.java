@@ -64,7 +64,7 @@ public class ListQuizActivity extends AppCompatActivity {
                 quizList = new ArrayList<>();
                 for(DataSnapshot ds : snapshot.getChildren()) {
                     Quiz quiz = ds.getValue(Quiz.class);
-                    if (quiz.getJenjang().equals(jenjang)&&quiz.getMapel().equals(mapel)){
+                    if (quiz.getJenjang().equals(jenjang)&&quiz.getMapel().equals(mapel)&&quiz.getKelas().equals(getIntent().getStringExtra("kelas2"))){
                         quizList.add(quiz);
                         quiz.setKey(ds.getKey());
                     }
