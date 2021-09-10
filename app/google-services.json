@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "802732675168-gqnjsh23v9tcsc5svtf90ldlai0fgmgu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.codes.al_kindi_app",
+            "certificate_hash": "92e611b9c20fabf20754698b63107b43138bcb0c"
+          }
+        },
+        {
+          "client_id": "802732675168-ngi8ip30j1rh5p4paamt5gbbhq4ik9uq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.codes.al_kindi_app",
+            "certificate_hash": "442b79f166da679076c48d44d8adbd6217a6d31a"
+          }
+        },
+        {
           "client_id": "802732675168-25876tg5khk16jn07kl6gilfkn0hopbq.apps.googleusercontent.com",
           "client_type": 3
         }

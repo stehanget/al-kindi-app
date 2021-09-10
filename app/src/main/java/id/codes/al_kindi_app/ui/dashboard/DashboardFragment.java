@@ -37,7 +37,7 @@ import id.codes.al_kindi_app.R;
 public class DashboardFragment extends Fragment {
 
     ConstraintLayout btn_materi;
-        CardView btn_menu_literasi,btn_menu_ilmuan,btn_menu_kuis;
+        CardView btn_menu_literasi,btn_menu_ilmuan,btn_menu_kuis,btn_menu_video;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     DatabaseReference databaseReference;
@@ -50,6 +50,7 @@ public class DashboardFragment extends Fragment {
         btn_menu_ilmuan = root.findViewById(R.id.btn_menu_ilmuan);
         btn_menu_literasi = root.findViewById(R.id.btn_menu_literasi);
         btn_menu_kuis = root.findViewById(R.id.btn_menu_kuis);
+        btn_menu_video = root.findViewById(R.id.btn_menu_video);
 
         btn_menu_kuis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +65,30 @@ public class DashboardFragment extends Fragment {
                         Intent intent = new Intent(getContext(), MapelActivity.class);
                         intent.putExtra("jenjang", jenjang);
                         intent.putExtra("type","quiz");
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
+
+        btn_menu_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseUser = firebaseAuth.getInstance().getCurrentUser();
+                databaseReference = FirebaseDatabase.getInstance().getReference("user").child(firebaseUser.getUid());
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getValue(User.class);
+                        jenjang = user.getJenjang();
+                        Intent intent = new Intent(getContext(), MapelActivity.class);
+                        intent.putExtra("jenjang", jenjang);
+                        intent.putExtra("type","video");
                         startActivity(intent);
                     }
 
